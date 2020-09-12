@@ -1,0 +1,29 @@
+  {
+    "manifest_version": 2,
+    "name": "Scout QA Highlighter",
+    "description": "Easily locate QA test attributes on any webpage",
+    "version": "1.0",
+    "icons": {
+      "32": "scout.png"
+    },
+    "permissions": [
+      "activeTab"
+    ],
+    "content_scripts": [
+      {
+        "matches": [
+          "<all_urls>"
+        ],
+        "css": [
+          "style.css"
+        ],
+        "js": [
+          "main.js"
+        ]
+      }
+    ],
+    "browser_action": {
+      "default_icon": "scout.png",
+      "default_popup": "index.html"
+    }
+  }
