@@ -8,13 +8,18 @@
   <body>
     <div class="scout-qa--popup">
       <div class="scout-qa--header">
-        <input id="scout-qa--toggle" type="checkbox" />
+        <label class="scout-qa--toggle">
+          <input id="scout-toggle" type="checkbox" hidden />
+          <div class="scout-qa--toggle-slider">OFF</div>
+        </label>
         <div>
           <img src="svg/scout.svg" />
           <img class="scout-qa--logo" src="svg/logo.svg" />
         </div>
       </div>
     </div>
+    <div class="test-div" data-test="show-kim">Kim</div>
+    <div class="test-div" data-test="set-hello">Hello</div>
     <script src="main.js"></script>
   </body>
 </html>

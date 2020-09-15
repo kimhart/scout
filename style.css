@@ -1,13 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
 :root {
   --scout-royal-purple: #784CCC;
+  --scout-royal-purple-dark: #523588;
   --scout-royal-purple-fade: rgba(120, 76, 204, 0.20);
   --scout-periwinkle: #6071F8;
-  --scout-white: #ffffff;
-  --scout-font-family-base: 'Roboto', 'Helvetica', sans-serif;
+  --scout-grey: #A0A7E0;
+  --scout-font-family-base: 'Helvetica', 'Arial', sans-serif;
   --scout-font-family-code: 'Inconsolata', monospace;
+
+  --toggle-height: 20px;
+  --toggle-width: 48px;
+  --toggle-handle-size: $height - 2px;
+}
+
+.test-div {
+  margin: 40px;
+  padding: 10px;
 }
 
 .scout-qa--popup {
@@ -15,6 +24,61 @@
   border-radius: 10px;
   height: 90px;
   width: 334px;
+}
+
+.scout-qa--highlight {
+  transition: all .2s;
+  -webkit-transition: all .2s;
+  background-color: var(--scout-royal-purple-fade);
+  position: relative;
+}
+
+/* adds border without shifting elements */
+.scout-qa--highlight::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  border-radius: 3px;
+  border: 2px solid var(--scout-royal-purple);
+}
+
+.scout-qa--label-wrap {
+  display: flex;
+  white-space: nowrap;
+  z-index: 9999;
+  position: absolute;
+  left: 0;
+  top: -29px;
+}
+
+.scout-qa--label,
+.scout-qa--value {
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  color: white;
+  font-size: 13px;
+  font-weight: 400;
+  padding: 6px;
+}
+
+.scout-qa--label {
+  pointer-events: none;
+  font-family: var(--scout-font-family-code);
+  background: var(--scout-royal-purple);
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.scout-qa--value {
+  background: var(--scout-periwinkle);
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+  font-family: var(--scout-font-family-base);
 }
 
 .scout-qa--header {
@@ -30,17 +94,67 @@
   margin-left: 8px;
 }
 
-.scout-qa--element-label {
-  border: 1px solid var(--scout-royal-purple);
-  border-radius: var(--scout-border-radius);
-
-  z-index: 9999;
-  position: absolute;
-  left: 0;
-  top: -22px;
-
-  height: 20px;
-  font-size: 11px;
+.scout-qa--toggle {
+  display: inline-flex;
+  cursor: pointer;
+  color: white;
   font-family: var(--scout-font-family-base);
-  color: var(--scout-white);
+  font-size: 11px;
+}
+
+.scout-qa--toggle-handle {
+  color: white;
+}
+
+.scout-qa--toggle {
+  position: relative;
+  display: inline-block;
+  width: 68px;
+  height: 34px;
+}
+
+.scout-qa--toggle-slider {
+  background-color: var(--scout-grey);
+  border: 1px solid var(--scout-royal-purple-dark);
+  position: absolute;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 8px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.scout-qa--toggle-slider::before {
+  position: absolute;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  content: url("svg/binoculars.svg");
+  height: 28px;
+  width: 28px;
+  box-sizing: border-box;
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .scout-qa--toggle-slider {
+  background-color: var(--scout-periwinkle);
+  justify-content: flex-start;
+}
+
+input:checked + .scout-qa--toggle-slider::before {
+  -webkit-transform: translateX(34px);
+  -ms-transform: translateX(34px);
+  transform: translateX(34px);
 }
