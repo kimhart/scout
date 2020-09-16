@@ -5,18 +5,22 @@ function toggleHighlight(e) {
   const toggle = document.querySelector('.scout-qa--toggle-slider');
   const description = document.querySelector('.scout-qa--description');
 
+  // reset message
+  description.textContent = 'Hit the switch to highlight test IDs';
+
   if (e.target.checked) {
+
+    if (!targets || targets.length < 1) {
+      description.textContent = `No test IDs found`;
+      return;
+    }
+
     targets.forEach(target => {
 
       const toggle = document.querySelector('.scout-qa--toggle-slider');
       const idName = Object.keys(target.dataset)[0];
       toggle.textContent = "SHOW";
-
-      if (targets.length === 0) {
-        description.textContent = `No test IDs found`;
-      } else {
-        description.textContent = `Scout found: ${targets.length} test IDs`;
-      }
+      description.textContent = `Scout found: ${targets.length} test IDs`;
 
       const container = document.createElement('div');
       const valueWrap = document.createElement('div');
@@ -52,8 +56,8 @@ function toggleHighlight(e) {
 
 document.getElementById('scout-toggle').addEventListener('click', (e) => {
   toggleHighlight(e);
-  browser.tabs.executeScript(null, {
-    code: `toggleHighlight(e)`
-  })
+  // browser.tabs.executeScript(null, {
+  //   code: `toggleHighlight(e)`
+  // })
 });
 
