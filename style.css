@@ -5,6 +5,7 @@
   --scout-royal-purple-dark: #523588;
   --scout-royal-purple-fade: rgba(120, 76, 204, 0.20);
   --scout-periwinkle: #6071F8;
+  --scout-navy: #262242;
   --scout-grey: #A0A7E0;
   --scout-font-family-base: 'Helvetica', 'Arial', sans-serif;
   --scout-font-family-code: 'Inconsolata', monospace;
@@ -19,12 +20,104 @@
   padding: 10px;
 }
 
+/* POPUP CONTROL WINDOW  */
+
 .scout-qa--popup {
-  background-color: var(--scout-royal-purple);
-  border-radius: 10px;
-  height: 90px;
-  width: 334px;
+  min-width: 338px;
+  display: inline-block;
 }
+
+.scout-qa--header {
+  background-color: var(--scout-royal-purple);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  box-sizing: border-box;
+  padding: 24px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.scout-qa--body {
+  padding: 24px;
+  background-color: var(--scout-navy);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.scout-qa--description {
+  font-family: var(--scout-font-family-code);
+  color: white;
+  font-size: 16px;
+}
+
+.scout-qa--logo {
+  margin-left: 8px;
+}
+
+.scout-qa--toggle {
+  display: inline-flex;
+  cursor: pointer;
+  color: white;
+  font-family: var(--scout-font-family-base);
+  font-size: 11px;
+}
+
+.scout-qa--toggle {
+  position: relative;
+  display: inline-block;
+  width: 80px;
+  height: 35px;
+}
+
+.scout-qa--toggle-slider {
+  background-color: var(--scout-grey);
+  border: 1px solid var(--scout-royal-purple-dark);
+  position: absolute;
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 10px;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.scout-qa--toggle-slider::before {
+  position: absolute;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  content: url("svg/binoculars.svg");
+  height: 28px;
+  width: 28px;
+  box-sizing: border-box;
+  left: 2px;
+  bottom: 2px;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .scout-qa--toggle-slider {
+  background-color: var(--scout-periwinkle);
+  justify-content: flex-start;
+}
+
+input:checked + .scout-qa--toggle-slider::before {
+  -webkit-transform: translateX(46px);
+  -ms-transform: translateX(46px);
+  transform: translateX(46px);
+}
+
+
+/* HIGHLIGHTING */
 
 .scout-qa--highlight {
   transition: all .2s;
@@ -81,79 +174,3 @@
   font-family: var(--scout-font-family-base);
 }
 
-.scout-qa--header {
-  height: 100%;
-  box-sizing: border-box;
-  padding: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.scout-qa--logo {
-  margin-left: 8px;
-}
-
-.scout-qa--toggle {
-  display: inline-flex;
-  cursor: pointer;
-  color: white;
-  font-family: var(--scout-font-family-base);
-  font-size: 11px;
-}
-
-.scout-qa--toggle-handle {
-  color: white;
-}
-
-.scout-qa--toggle {
-  position: relative;
-  display: inline-block;
-  width: 68px;
-  height: 35px;
-}
-
-.scout-qa--toggle-slider {
-  background-color: var(--scout-grey);
-  border: 1px solid var(--scout-royal-purple-dark);
-  position: absolute;
-  cursor: pointer;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  padding: 0 8px;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  -webkit-transition: .4s;
-  transition: .4s;
-  border-radius: 34px;
-}
-
-.scout-qa--toggle-slider::before {
-  position: absolute;
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  content: url("svg/binoculars.svg");
-  height: 28px;
-  width: 28px;
-  box-sizing: border-box;
-  left: 2px;
-  bottom: 2px;
-  -webkit-transition: .4s;
-  transition: .4s;
-  border-radius: 50%;
-}
-
-input:checked + .scout-qa--toggle-slider {
-  background-color: var(--scout-periwinkle);
-  justify-content: flex-start;
-}
-
-input:checked + .scout-qa--toggle-slider::before {
-  -webkit-transform: translateX(34px);
-  -ms-transform: translateX(34px);
-  transform: translateX(34px);
-}

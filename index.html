@@ -2,24 +2,28 @@
 <html>
   <head>
     <meta charset="UTF-8">
+    <meta name="description" content="Scout QA Extension">
   </head>
   <link rel="stylesheet" href="style.css">
-
+  <script src="js/browser-polyfill.min.js"></script>
   <body>
     <div class="scout-qa--popup">
       <div class="scout-qa--header">
         <label class="scout-qa--toggle">
           <input id="scout-toggle" type="checkbox" hidden />
-          <div class="scout-qa--toggle-slider">OFF</div>
+          <div class="scout-qa--toggle-slider">HIDE</div>
         </label>
         <div>
           <img src="svg/scout.svg" />
           <img class="scout-qa--logo" src="svg/logo.svg" />
         </div>
       </div>
+      <div class="scout-qa--body">
+        <span class="scout-qa--description">Hit the switch to highlight test IDs</span>
+      </div>
     </div>
     <div class="test-div" data-test="show-kim">Kim</div>
     <div class="test-div" data-qa="set-hello">Hello</div>
-    <script src="main.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
