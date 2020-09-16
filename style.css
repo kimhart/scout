@@ -110,7 +110,7 @@
   position: relative;
   display: inline-block;
   width: 68px;
-  height: 34px;
+  height: 35px;
 }
 
 .scout-qa--toggle-slider {
@@ -142,7 +142,6 @@
   box-sizing: border-box;
   left: 2px;
   bottom: 2px;
-  background-color: white;
   -webkit-transition: .4s;
   transition: .4s;
   border-radius: 50%;
