@@ -1,4 +1,4 @@
-const testIds = '[data-test]';
+const testIds = '[data-qa], [data-test]';
 const highlightClass = 'scout-qa--highlight';
 
 function toggleHighlight(e) {
@@ -8,14 +8,15 @@ function toggleHighlight(e) {
   if (e.target.checked) {
     targets.map((target) => {
       const toggle = document.querySelector('.scout-qa--toggle-slider');
+      const idName = Object.keys(target.dataset)[0];
       toggle.textContent = "ON";
 
       const container = document.createElement('div');
       const valueWrap = document.createElement('div');
       const labelWrap = document.createElement('div');
 
-      const label = document.createTextNode("data-test");
-      const value = target.dataset.test;
+      const label = document.createTextNode(`data-${idName}`);
+      const value = target.dataset[idName];
 
       container.classList.add('scout-qa--label-wrap');
       container.append(labelWrap);
