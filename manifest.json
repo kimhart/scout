@@ -1,6 +1,7 @@
   {
     "name": "Scout QA Highlighter",
-    "description": "Easily locate QA test attributes on any webpage",
+    "short_name": "Scout",
+    "description": "Locate data-test attributes on any webpage",
     "version": "1.0",
     "manifest_version": 2,
     "icons": {
@@ -17,14 +18,11 @@
         ],
         "css": [
           "style.css"
-        ],
-        "js": [
-          "main.js"
         ]
       }
     ],
     "browser_action": {
       "default_icon": "img/icon_32x32.png",
-      "default_popup": "index.html"
+      "default_popup": "popup.html"
     }
   }
