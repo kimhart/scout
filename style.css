@@ -150,7 +150,7 @@ input:checked + .scout-qa--toggle-slider::before {
   color: white !important;
   font-size: 13px !important;
   text-transform: lowercase !important;
-  font-weight: 500 !important;
+  font-weight: 600 !important;
   margin: 0 !important;
 }
 
