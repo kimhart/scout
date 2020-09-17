@@ -133,6 +133,12 @@ input:checked + .scout-qa--toggle-slider::before {
   left: -2px;
   top: -32px;
   margin: auto;
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+
+.scout-qa--highlight:hover .scout-qa--label-wrap {
+  opacity: 1;
 }
 
 .scout-qa--label,
