@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", () => {
       code: `(${getIDs})()`
     }, (res) => {
       const ids = res[0];
+      console.log(ids)
       const countSpan = document.createElement('span');
       toggle.textContent = "ON";
       description.textContent = `Scout found: `;
