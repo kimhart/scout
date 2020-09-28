@@ -116,26 +116,17 @@ input:checked + .scout-qa--toggle-slider::before {
 /* HIGHLIGHTING */
 /* !importants exist to overwrite any other possible styles on elements */
 
+body * {
+  /* ensures scout labels are always visible */
+  overflow: visible !important;
+}
+
 .scout-qa--highlight {
   transition: background-color .1s !important;
   -webkit-transition: background-color .1s !important;
   background-color: var(--scout-royal-purple-fade) !important;
-  overflow: visible !important;
+  color: black !important;
   position: relative !important;
-}
-
-.scout-qa--highlight > div {
-  overflow: visible !important;
-}
-
-.scout-qa--highlight::after {
-  content: '' !important;
-  position: absolute !important;
-  z-index: -1 !important;
-  top: -2px !important;
-  right: -2px !important;
-  bottom: -2px !important;
-  left: -2px !important;
   transition: border .1s ease-in-out !important;
   -webkit-transition: border .1s !important;
   border-radius: 3px !important;
@@ -151,16 +142,19 @@ input:checked + .scout-qa--toggle-slider::before {
   padding: 0 !important;
   margin: auto !important;
   opacity: 0 !important;
-  transition: opacity .2s ease !important;;
+  visibility: hidden !important;
+  transition: opacity .2s ease !important;
+  z-index: 9999 !important;
 }
 
-.scout-qa--highlight:hover .scout-qa--label-wrap {
+.scout-qa--highlight:hover > .scout-qa--label-wrap {
   opacity: 1 !important;
-  z-index: 9999 !important;
+  visibility: visible !important;
 }
 
 .scout-qa--label,
 .scout-qa--value {
+  min-height: 20px;
   display: flex !important;
   box-sizing: border-box !important;
   align-items: center !important;
