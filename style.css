@@ -114,6 +114,7 @@ input:checked + .scout-qa--toggle-slider::before {
 
 
 /* HIGHLIGHTING */
+/* !importants exist to overwrite any other possible styles on elements */
 
 .scout-qa--highlight {
   transition: background-color .1s !important;
@@ -123,61 +124,66 @@ input:checked + .scout-qa--toggle-slider::before {
   position: relative !important;
 }
 
+.scout-qa--highlight > div {
+  overflow: visible !important;
+}
+
 .scout-qa--highlight::after {
-  content: '';
-  position: absolute;
-  top: -2px;
-  right: -2px;
-  bottom: -2px;
-  left: -2px;
-  z-index: 2;
-  transition: border .1s ease-in-out;
-  -webkit-transition: border .1s;
-  border-radius: 3px;
-  border: 2px solid var(--scout-royal-purple);
+  content: '' !important;
+  position: absolute !important;
+  z-index: -1 !important;
+  top: -2px !important;
+  right: -2px !important;
+  bottom: -2px !important;
+  left: -2px !important;
+  transition: border .1s ease-in-out !important;
+  -webkit-transition: border .1s !important;
+  border-radius: 3px !important;
+  border: 2px solid var(--scout-royal-purple) !important;
 }
 
 .scout-qa--label-wrap {
-  display: flex;
-  white-space: nowrap;
-  z-index: 9999;
-  position: absolute;
-  left: -2px;
-  top: -32px;
-  margin: auto;
-  opacity: 0;
-  transition: opacity .2s ease;
+  display: flex !important;
+  white-space: nowrap !important;
+  position: absolute !important;
+  left: -2px !important;
+  top: -32px !important;
+  padding: 0 !important;
+  margin: auto !important;
+  opacity: 0 !important;
+  transition: opacity .2s ease !important;;
 }
 
 .scout-qa--highlight:hover .scout-qa--label-wrap {
-  opacity: 1;
+  opacity: 1 !important;
+  z-index: 9999 !important;
 }
 
 .scout-qa--label,
 .scout-qa--value {
-  display: flex;
-  box-sizing: border-box;
-  align-items: center;
-  padding: 6px;
-  color: white;
-  font-size: 13px;
-  text-transform: lowercase;
-  font-weight: 400;
-  margin: 0;
+  display: flex !important;
+  box-sizing: border-box !important;
+  align-items: center !important;
+  padding: 6px !important;
+  color: white !important;
+  font-size: 13px !important;
+  text-transform: lowercase !important;
+  font-weight: 400 !important;
+  margin: 0 !important;
 }
 
 .scout-qa--label {
-  pointer-events: none;
-  font-family: var(--scout-font-family-code);
-  background: var(--scout-royal-purple);
-  border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
+  pointer-events: none !important;
+  font-family: var(--scout-font-family-code) !important;
+  background: var(--scout-royal-purple) !important;
+  border-top-left-radius: 3px !important;
+  border-bottom-left-radius: 3px !important;
 }
 
 .scout-qa--value {
-  background: var(--scout-periwinkle);
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
-  font-family: var(--scout-font-family-base);
+  background: var(--scout-periwinkle) !important;
+  border-top-right-radius: 3px !important;
+  border-bottom-right-radius: 3px !important;
+  font-family: var(--scout-font-family-base) !important;
 }
 

@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   function show () {
+    // Remove any residual elements
     storage.remove('scoutHighlight');
 
     // Save setting in Scout's localstorage
