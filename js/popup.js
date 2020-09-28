@@ -9,7 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Load with appropriate setting
   storage.get(['scoutHighlight'], function (setting) {
-    console.log(setting.scoutHighlight)
     if (setting.scoutHighlight) {
       toggle.checked = true;
       show();
@@ -18,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
       hide();
     }
   });
-
 
   function show () {
     // Remove any residual elements
