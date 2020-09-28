@@ -128,7 +128,7 @@ input:checked + .scout-qa--toggle-slider::before {
   border: 2px solid var(--scout-royal-purple) !important;
 }
 
-.scout-qa--highlight *  {
+.scout-qa--highlight * {
   overflow: visible !important;
 }
 
@@ -138,15 +138,12 @@ input:checked + .scout-qa--toggle-slider::before {
   position: absolute !important;
   left: -2px !important;
   top: -36px !important;
-  top: 0;
-  bottom: 0;
-  left: 0;
   padding: 0 !important;
   margin: auto !important;
   opacity: 0 !important;
   visibility: hidden !important;
   transition: opacity .2s ease !important;
-  z-index: 99999 !important;
+  z-index: 9999 !important;
 }
 
 .scout-qa--highlight:hover > .scout-qa--label-wrap {
