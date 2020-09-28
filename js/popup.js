@@ -1,24 +1,43 @@
 document.addEventListener("DOMContentLoaded", () => {
 
   const description = document.querySelector('.scout-qa--description');
-  const toggle = document.querySelector('.scout-qa--toggle-slider');
+  const toggle = document.getElementById('scout-toggle');
+  const toggleSlider = document.querySelector('.scout-qa--toggle-slider');
+  const storage = chrome.storage.sync;
 
   const getIDs = () => Array.from(document.querySelectorAll('[data-test]'));
-  
+
+  // Load with appropriate setting
+  storage.get(['scoutHighlight'], function (setting) {
+    console.log(setting.scoutHighlight)
+    if (setting.scoutHighlight) {
+      toggle.checked = true;
+      show();
+    } else {
+      toggle.checked = false;
+      hide();
+    }
+  });
+
+
   function show () {
-    // Runs in browser
+    storage.remove('scoutHighlight');
+
+    // Save setting in Scout's localstorage
+    storage.set({ scoutHighlight: true });
+
+    // Runs in user's browser
     chrome.tabs.executeScript({ 
       file: 'js/show.js'
     })
 
-    // Get count from browser to use in Scout
+    // Gets browser data to use in Scout
     chrome.tabs.executeScript({
       code: `(${getIDs})()`
     }, (res) => {
       const ids = res[0];
-      console.log(ids)
       const countSpan = document.createElement('span');
-      toggle.textContent = "ON";
+      toggleSlider.textContent = "ON";
       description.textContent = `Scout found: `;
       countSpan.textContent = `${ids.length} data-test ID${ids.length != 1 ? 's' : ''}`;
       description.append(countSpan);
@@ -26,21 +45,24 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function hide() {
-    // Runs in browser
+    // Clear Scout's localstorage setting
+    storage.set({ scoutHighlight: false });
+
+    // Runs in user's browser
     chrome.tabs.executeScript({
       file: "js/hide.js",
     });
 
     // Runs in Scout 
     const span = document.createElement("span");
-    toggle.textContent = "OFF";
+    toggleSlider.textContent = "OFF";
     span.textContent = "data-test";
     description.textContent = "Toggle on to highlight ";
     description.append(span);
     description.append(" IDs");
   }
 
-  document.getElementById('scout-toggle').addEventListener('click', (e) => {
+  toggle.addEventListener('click', (e) => {
     e.target.checked ? show() : hide();
   })
 });

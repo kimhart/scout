@@ -1,4 +1,3 @@
-var highlightClass = 'scout-qa--highlight';
 var toggle = document.querySelector('.scout-qa--toggle-slider');
 var description = document.querySelector('.scout-qa--description');
 var targets = Array.from(document.querySelectorAll('[data-test]'));
@@ -23,6 +22,6 @@ targets.forEach(target => {
   valueWrap.classList.add('scout-qa--value');
 
   target.appendChild(container);
-  target.classList.add(highlightClass);
+  target.classList.add('scout-qa--highlight');
 });
 

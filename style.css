@@ -119,7 +119,8 @@ input:checked + .scout-qa--toggle-slider::before {
   transition: background-color .1s !important;
   -webkit-transition: background-color .1s !important;
   background-color: var(--scout-royal-purple-fade) !important;
-  position: relative;
+  overflow: visible !important;
+  position: relative !important;
 }
 
 .scout-qa--highlight::after {
