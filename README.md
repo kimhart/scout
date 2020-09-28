@@ -1,5 +1,5 @@
 # [Scout](https://scout.codes)
-Scout is a QA tool for finding and inspecting elements with test IDs applied with the `data-test` attribute. 
+Scout is a QA tool for finding and inspecting UI elements with test IDs applied with the `data-test` attribute. 
 
 ## Download
 Scout is available as a Chrome extension. [Get it here](#)!
