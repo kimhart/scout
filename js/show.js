@@ -19,7 +19,7 @@ targets.forEach(target => {
 
   labelWrap.classList.add('scout-qa--label');
   valueWrap.classList.add('scout-qa--value');
-
+  
   target.append(container);
   target.classList.add('scout-qa--highlight');
 });
