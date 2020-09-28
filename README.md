@@ -11,3 +11,4 @@ Toggle Scout `on` to search the DOM for all `data-test` attributes and highlight
 
 Toggle Scout `off` to remove the highlight feature.
 
+Check out the [demo page](https://scout.codes/demo) for an example!
