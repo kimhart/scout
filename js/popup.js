@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const getIDs = () => Array.from(document.querySelectorAll('[data-test]'));
 
-  // Load with appropriate setting
+  // Load last-used setting when popup launches
   storage.get(['scoutHighlight'], function (setting) {
     if (setting.scoutHighlight) {
       toggle.checked = true;
