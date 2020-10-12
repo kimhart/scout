@@ -61,7 +61,9 @@ document.addEventListener("DOMContentLoaded", () => {
     description.append(" IDs");
   }
 
+  // Manual toggle
   toggle.addEventListener('click', (e) => {
     e.target.checked ? show() : hide();
   })
+  
 });
