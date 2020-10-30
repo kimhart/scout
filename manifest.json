@@ -2,7 +2,7 @@
     "name": "Scout QA Highlighter",
     "short_name": "Scout",
     "description": "Locate data-test attributes on any webpage",
-    "version": "1.0",
+    "version": "1.1",
     "manifest_version": 2,
     "icons": {
       "32": "img/icon_32x32.png",
