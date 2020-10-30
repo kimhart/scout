@@ -22,7 +22,7 @@ Check out the [demo page](https://scout.codes/demo) for an example!
 
 ## [Firefox Support](#firefox-support)
 
-Scout v1.1 introduces beta support for Scout in Firefox via the WebExtensions API. To install, follow these steps:
+Scout v1.1 introduces beta support for Scout in Firefox via the [WebExtensions API](https://extensionworkshop.com/documentation/develop/about-the-webextensions-api/). To install, follow these steps:
 
 1. Download the packaged extension (`.xpi`) file [here](/web-ext-artifacts).
 2. In Firefox, visit `about:addons`
