@@ -18,6 +18,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
+  chrome.tabs.executeScript({ 
+    file: 'js/globals.js'
+  });
+
   function show () {
     // Remove any residual elements
     storage.remove('scoutHighlight');
