@@ -16,6 +16,9 @@ targets.forEach(target => {
     container.classList.add('scout-qa--label-wrap');
     container.append(labelWrap);
     container.append(valueWrap);
+    if (window.scout) {
+      container.addEventListener('click', window.scout.clickHandler);
+    }
   
     labelWrap.append(label);
     valueWrap.append(value);
